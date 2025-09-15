@@ -1,7 +1,7 @@
 services:
   postgres:
     image: pgvector/pgvector:pg17
-    container_name: postgres_rag
+    container_name: postgres_rag_desafio01_wilson
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
