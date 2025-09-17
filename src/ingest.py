@@ -7,7 +7,6 @@ load_dotenv()
 
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-#from langchain_google_genai import GoogleGenerativeAIEmbeddings 
 from langchain_openai import OpenAIEmbeddings
 from langchain_core.documents import Document
 from langchain_postgres import PGVector
@@ -17,14 +16,8 @@ for k in ("PG_VECTOR_COLLECTION_NAME","DATABASE_URL", "PDF_PATH"):
         raise RuntimeError(f"Environment variable {k} is not set")
 
 PDF_PATH = os.getenv("PDF_PATH")
-AIKEY = os.getenv("GOOGLE_API_KEY")
-AIMODEL = os.getenv("GOOGLE_EMBEDDING_MODEL")
-
-
-if not AIKEY:
-    AIKEY = os.getenv("OPENAI_API_KEY")
-    AIMODEL = os.getenv("OPENAI_EMBEDDING_MODEL")
-
+AIKEY = os.getenv("OPENAI_API_KEY")
+AIMODEL = os.getenv("OPENAI_EMBEDDING_MODEL")
 
 def ingest_pdf():
 
